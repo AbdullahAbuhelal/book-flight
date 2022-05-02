@@ -77,3 +77,11 @@
 .sign form p{
   font-size: 14px;
 }
+.sign .error{
+  color: red;
+  font-weight: bold;
+}
+.sign input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  appearance: none;
+}
