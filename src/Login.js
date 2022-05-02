@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const loginFunction = () => {
+const loginFunction = (e) => {
+    e.preventDefault();
     console.log('submit');
 }
 
@@ -13,17 +14,19 @@ const Login = () => {
                 <input
                     type="number"
                     required
+                    placeholder="passport number"
                 />
                 <label>Password</label>
                 <input
                 type="password"
                 required
+                placeholder="password"
                 />
                 <div className="button">
                     <button>Login</button>
                 </div>
             </form>
-            <p>Don't have an account? <Link to='/signup'>signup</Link></p>
+            <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
         </div>
      );
 }
