@@ -80,6 +80,8 @@
 .sign .error{
   color: red;
   font-weight: bold;
+  margin-top: 0;
+  text-align: start;
 }
 .sign input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{

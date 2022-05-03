@@ -19,7 +19,7 @@ const Login = () => {
             <form onSubmit={loginFunction}>
                 <label>Passport Number</label>
                 <input
-                    type="number"
+                    type="text"
                     required
                     placeholder="passport number"
                     value={passport}
