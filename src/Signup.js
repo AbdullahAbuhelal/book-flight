@@ -21,7 +21,6 @@ const Signup = () => {
                 for (var i=1; i<6; i++){
                     if (passport.charAt(i)<'0' || passport.charAt(i)>'9'){
                         setPassportError(true);
-                        console.log('digit');
                         break;
                     }
                 }
@@ -42,23 +41,26 @@ const Signup = () => {
 
     const signupFunction = (e) =>{
         e.preventDefault();
+
         /* validate passport number
         considering the Saudi passport number that is 6 characters long and first character is a letter and the rest is digits */
         validatePassport();
+
         // validate password
         if (password.length<8) setPasswordError(true);
 
         // validate the name
         setFirstNameError(validateName(firstName));
         setLastNameError(validateName(lastName));
-        console.log(firstName);
+
     }
+
     return (
         <div className="sign">
             <h2>Signup</h2>
             <form onSubmit={signupFunction}>
                 <label>Passport Number*</label>
-                {passportError && <p className="error">Invalid passport</p>}
+                {passportError && <p className="error">Invalid passport number</p>}
                 <input
                 type="text"
                 required
@@ -94,6 +96,7 @@ const Signup = () => {
                 onChange={(e) => setLastName(e.target.value)}
                 />
                 <label>Birth Date*</label>
+                {birthDateError && <p className="error">Invalid birth date</p>}
                 <input
                 type="date"
                 required
