@@ -8,14 +8,27 @@ const Home = () => {
         {name: 'Jeddah', acronym: 'JED'},
         {name: 'Dammam', acronym: 'DMM'},
     ];
+    const demoFlights = [
+        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
+        {id: 2222, departure: 'RUH', destination: 'DMM', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
+        {id: 1111, departure: 'JED', destination: 'RUH', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
+        {id: 1111, departure: 'JED', destination: 'DMM', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
+        {id: 1111, departure: 'DMM', destination: 'JED', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
+        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-4', departureTime: '05:00', arrivalTime: '07:00'},
+        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-5', departureTime: '01:00', arrivalTime: '03:00'},
+    ]
 
     const [destinationCity, setDestinationCity] = useState('JED');
     const [flightDate, setFlightDate] = useState('');
     const [departureCity, setDepartureCity] = useState('RUH');
+    const [flights, setFlights] = useState(null);
 
     const searchFlights = (e) => {
         e.preventDefault();
+        console.log(flightDate);
         setIsSearching(true);
+        // TODO: search flights using the database
+        // navigator('/flights', {date: flightDate, departure: departureCity, destination: destinationCity, flights: flights});
     }
 
     return (
