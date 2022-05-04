@@ -10,9 +10,8 @@ const Home = () => {
     ];
 
     const [destinationCity, setDestinationCity] = useState('JED');
-    const [destinationDate, setDestinationDate] = useState('');
+    const [flightDate, setFlightDate] = useState('');
     const [departureCity, setDepartureCity] = useState('RUH');
-    const [departureDate, setDepartureDate] = useState('');
 
     const searchFlights = (e) => {
         e.preventDefault();
@@ -35,10 +34,6 @@ const Home = () => {
                                 value={city.acronym}>{city.name} ({city.acronym})</option>
                             ))}
                         </select>
-                        <label>Date</label>
-                        <input
-                        type="date"
-                        onChange={(e) => setDepartureDate(e.target.value)} />
                 </div>
                 <div>
                     <h3>Destination</h3>
@@ -52,13 +47,17 @@ const Home = () => {
                                 value={city.acronym}>{city.name} ({city.acronym})</option>
                             ))}
                         </select>
-                        <label>Date</label>
-                        <input 
-                        type="date"
-                        onChange={(e) => setDestinationDate(e.target.value)} />
                 </div>
-                { !isSearching && <button>Search</button>}
-                { isSearching && <button disabled>Searching...</button>}
+                <div>
+                    <label>Date</label>
+                    <input
+                    type="date"
+                    onChange={(e) => setFlightDate(e.target.value)} />
+                </div>
+                <div>
+                    { !isSearching && <button>Search</button>}
+                    { isSearching && <button disabled>Searching...</button>}
+                </div>
             </form>
         </div>
      );
