@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
@@ -8,33 +9,24 @@ const Home = () => {
         {name: 'Jeddah', acronym: 'JED'},
         {name: 'Dammam', acronym: 'DMM'},
     ];
-    const demoFlights = [
-        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
-        {id: 2222, departure: 'RUH', destination: 'DMM', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
-        {id: 1111, departure: 'JED', destination: 'RUH', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
-        {id: 1111, departure: 'JED', destination: 'DMM', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
-        {id: 1111, departure: 'DMM', destination: 'JED', date: '2022-05-4', departureTime: '01:00', arrivalTime: '03:00'},
-        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-4', departureTime: '05:00', arrivalTime: '07:00'},
-        {id: 1111, departure: 'RUH', destination: 'JED', date: '2022-05-5', departureTime: '01:00', arrivalTime: '03:00'},
-    ]
 
     const [destinationCity, setDestinationCity] = useState('JED');
     const [flightDate, setFlightDate] = useState('');
     const [departureCity, setDepartureCity] = useState('RUH');
-    const [flights, setFlights] = useState(null);
+    const [dateError, setDateError] = useState(false);
+    const navigate = useNavigate();
 
-    const searchFlights = (e) => {
-        e.preventDefault();
-        console.log(flightDate);
-        setIsSearching(true);
-        // TODO: search flights using the database
-        // navigator('/flights', {date: flightDate, departure: departureCity, destination: destinationCity, flights: flights});
+    const submit = () => {
+        setIsSearching(false);
+        if (flightDate === "") setDateError(true);
+        else
+        navigate(`/search-flights/${departureCity}/${destinationCity}/${flightDate}`);
     }
 
     return (
         <div className="home">
             <h2>Book a flight</h2>
-            <form onSubmit={searchFlights}>
+            <form onSubmit={submit}>
                 <div>
                     <h3>Departure</h3>
                     <label>City</label>
@@ -65,11 +57,14 @@ const Home = () => {
                     <label>Date</label>
                     <input
                     type="date"
-                    onChange={(e) => setFlightDate(e.target.value)} />
+                    onChange={(e) => {
+                        setFlightDate(e.target.value);
+                        setDateError(false);
+                        }} />
+                    {dateError && <p className="error">Please pick a date!</p>}
                 </div>
                 <div>
-                    { !isSearching && <button>Search</button>}
-                    { isSearching && <button disabled>Searching...</button>}
+                    <button>Search</button>
                 </div>
             </form>
         </div>

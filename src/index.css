@@ -126,3 +126,54 @@ input[type=number]::-webkit-outer-spin-button{
   margin-top: 21px;
   display: block;
 }
+.home .error{
+  color: red;
+  font-weight: bold;
+  margin-top: 0;
+  font-size: 8;
+}
+
+/* Flights page styles */
+.flights {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.flights .no-flights {
+  text-align: start;
+}
+.flights a{
+  text-decoration: none;
+  font-weight: bold;
+}
+.flights a:hover {
+  color: #A97155;
+}
+.flights .flightCard{
+  text-align: start;
+  border: 2px solid #E4D1B9;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.flights .flightCard:hover{
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.flights .flightCard div{
+  width: 27%;
+  text-align: start;
+  display: inline-table;
+  padding: 10px 16px;
+  margin: 20px 0;
+}
+
+.flights p{
+  font-size: 10px;
+  font-weight: light;
+}
+.flights a{
+  text-decoration: none;
+}
+.flights .flightCard h3{
+  text-align: center;
+}
