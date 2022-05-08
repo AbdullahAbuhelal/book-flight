@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 const SeatMap = (props) => {
     const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-    const allSeats = props.allSeats;
-    console.log(allSeats.length);
+    const seats = props.seats;
+    const [seatsArrayF, setSeatsArrayF] = useState(seats.seatsArrayF);
+    const [seatsArrayB, setSeatsArrayB] = useState(seats.seatsArrayB);
+    const [seatsArrayE, setSeatsArrayE] = useState(seats.seatsArrayE);
+    console.log(seatsArrayF, seatsArrayB, seatsArrayE);
 
     const [isSeatLimit, setIsSeatLimit] = useState(false);
 
@@ -61,7 +64,6 @@ const SeatMap = (props) => {
                         </select>
                         <label>price: </label>
                         <label className="price">
-                            {/* TODO: use the database to fetch the price of the seat based on the class */}
                             300
                             </label>
                         <label>sar</label>
@@ -71,7 +73,7 @@ const SeatMap = (props) => {
             }
             <p className="add-seat" onClick={addSeat}>add a seat</p>
             {isSeatLimit && <p className="error">Cannot add a seat: You have reached the seats limit!</p>}
-            <button>Pay</button>
+            <button>Checkout</button>
         </form>
     </div> )
 }

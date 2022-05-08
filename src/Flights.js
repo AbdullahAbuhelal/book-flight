@@ -52,8 +52,8 @@ const Flights = () => {
                 <h2>Flights</h2>
                 <h3>From {departure} to {destination} </h3>
                 <h4>in {date}</h4>
-                {flights.map((flight) => (
-                    <div className="flightCard">
+                {flights.map((flight, i) => (
+                    <div className="flightCard" key={i}>
                         <Link to={'/search-flights/select-seat'} state={{flight: flight}}>
                             <div>
                             <p>Flight number:</p>
