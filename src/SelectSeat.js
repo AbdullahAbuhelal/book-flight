@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LoadingPage from "./LoadingPage";
 import SeatMap from "./SeatMap";
+import pool from "./database";
 
 const SelectSeat = () => {
     const location = useLocation();
@@ -103,6 +104,17 @@ const SelectSeat = () => {
         setSeatsArrayE(seatsArrayETmp);
         console.log('tmp array', seatsArrayFTmp);
         console.log(seatsArrayF, seatsArrayB, seatsArrayE);
+
+
+        // const pool = pool;
+
+        pool.query(`SELECT * FROM airport.passenger`, function(err, result, fields) {
+            if (err) {
+                return console.log(err);
+            }
+            return console.log(result);
+        });
+
         setIsPending(false);
     }, [isPending, setLetterEndB]);
 

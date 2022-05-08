@@ -59,8 +59,10 @@ const SeatMap = (props) => {
                             <option value="Economy class">Economy class</option>
                         </select>
                         <label>seat number: </label>
-                        <select>
-                            <option value="">non</option>
+                        <select name="" id="">
+                            {seat.class=='First class' && seatsArrayF.map((s, i) => 
+                            <option key={i}>{s}</option>
+                            )}
                         </select>
                         <label>price: </label>
                         <label className="price">
