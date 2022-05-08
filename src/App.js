@@ -4,6 +4,7 @@ import Login from './Login';
 import Signup from './Signup';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Flights from './Flights';
+import SelectSeat from './SelectSeat';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/login' element={<Login></Login>}></Route>
             <Route path='/signup' element={<Signup></Signup>}></Route>
             <Route path='/search-flights/:departure/:destination/:date' element={<Flights></Flights>}></Route>
+            <Route path='/search-flights/select-seat' element={<SelectSeat></SelectSeat>}></Route>
           </Routes>
         </div>
       </div>

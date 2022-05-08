@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 
 const Flights = () => {
     const {departure, destination, date} = useParams();
@@ -46,17 +47,14 @@ const Flights = () => {
                 <p>There's no flights based on your search!</p>
                 <p>Please <Link to={'/'}>search again</Link></p>
             </div>}
-            {isSearching && <div className="isSearching">
-                <h2>Loading...</h2>
-                <p>Please wait</p>
-            </div>}
+            {isSearching && <LoadingPage></LoadingPage>}
             {!isSearching && flights.length !=0 && <div>
                 <h2>Flights</h2>
                 <h3>From {departure} to {destination} </h3>
                 <h4>in {date}</h4>
                 {flights.map((flight) => (
                     <div className="flightCard">
-                        <Link to={'/'}>
+                        <Link to={'/search-flights/select-seat'} state={{flight: flight}}>
                             <div>
                             <p>Flight number:</p>
                             <h3>{flight.id}</h3>

@@ -177,3 +177,58 @@ input[type=number]::-webkit-outer-spin-button{
 .flights .flightCard h3{
   text-align: center;
 }
+
+.select-seat{
+  max-width: 600;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* seat map styles */
+.seat-map{
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.seat-map .add-seat{
+  cursor: pointer;
+  font-weight: bold;
+}
+.seat-map .add-seat:hover{
+  color: #A97155;
+}
+.seat-map .form label, select{
+  display: inline;
+  width: auto;
+}
+.seat-map label{
+  margin-left: 6px;
+}
+.seat-map .price{
+  font-weight: bold;
+  margin-left: auto;
+}
+.seat-map button{
+  background-color: #A97155;
+  color: #E4D1B9;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.seat-map .error{
+  color: red;
+  font-weight: bold;
+}
+.seat-map .delete{
+  background-color: #A97155;
+  margin-left: 5px;
+  font-size: 12px;
+}
+.seat-map .delete:hover{
+  background-color: red;
+}
+.seat-map h4{
+  margin-top: 10px;
+}
